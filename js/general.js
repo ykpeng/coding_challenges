@@ -85,9 +85,36 @@ function findMissing(arr, n) {
 console.log(findMissing([5,3,4,1,2,8], 9));
 
 // Given n competitors, what is the minimum match to decide winners ?
+// n/2 + n/4 + n/8 ...+ 1
 
 // Deep copy of a linked list, with an extra pointer to a random node.
-
+function deepCopy(head) {
+  let curr = head;
+  let newNode = new Node(curr.val);
+  let newHead = newNode;
+  while (curr !== null) {
+    newNode.next = curr.next === null ? null : new Node(curr.next.val);
+    curr = curr.next;
+    newNode = newNode.next;
+  }
+  return newHead;
+}
 // Link children of BST to siblings
-
+function linkChildren(root) {
+  let queue = [root];
+  while (queue.length !== 0) {
+    let curr = queue.shift();
+    let [left, right] = curr.children;
+    if (left) {
+      left.sibling = right || null;
+      queue.push(left);
+    }
+    if (right) {
+      right.sibling = left || null;
+      queue.push(right);
+    }
+  }
+  return root;
+}
 // How many comparisons do you need to find the largest integer in a list of N numbers? How can you possibly interpret/ justify that?
+// N - 1
