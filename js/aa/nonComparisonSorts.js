@@ -7,5 +7,5 @@ function sort1 (arr) {
 }
 
 function sort2 (arr, maxVal) {
-  //make array
+  //make arraypa
 }
