@@ -1,0 +1,17 @@
+.bars {
+	width: 100%;
+}
+
+.bars > div {
+	height: 10px;
+}
+
+.bar1 {
+	width: 10px;
+	background: red;
+}
+
+.bar2 {
+	width: 10px;
+	background: blue;
+}

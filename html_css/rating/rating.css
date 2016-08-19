@@ -1,0 +1,24 @@
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 1.25em;
+  float: right;
+  color: grey;
+}
+
+.rating label:before {
+  content: "\2605";
+}
+
+.rating > input:checked ~label,
+.rating label:hover,
+.rating label:hover ~label {
+  color: yellow;
+}
