@@ -118,3 +118,5 @@ function linkChildren(root) {
 }
 // How many comparisons do you need to find the largest integer in a list of N numbers? How can you possibly interpret/ justify that?
 // N - 1
+
+// Write a sodoku validator function that returns true if a passed string containing all 81 numbers of the puzzle is a valid solution, false otherwise.
