@@ -62,3 +62,15 @@ nav ul ul ul li:hover ul {
 span:hover + div {
   display: block;
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.bottom {
+  clear: both;
+}

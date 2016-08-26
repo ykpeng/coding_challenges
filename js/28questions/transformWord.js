@@ -1,4 +1,4 @@
-function constructAlpha(){
+function constructAlpha() {
   const alpha = [];
   const start = "a".charCodeAt();
   const end = "z".charCodeAt();
@@ -8,7 +8,7 @@ function constructAlpha(){
   return alpha;
 }
 
-function constructGraph(dictionary){
+function constructGraph(dictionary) {
   const LETTERS = constructAlpha();
   const graph = {};
   dictionary.forEach((word)=>{
@@ -41,5 +41,32 @@ function constructGraph(dictionary){
 }
 
 function transformWord(graph, start, goal){
+  const queue = [start];
+  const explored = new Set();
+  const parents = { start: null };
+  while (queue.length !== 0) {
+    currWord = queue.shift();
+    explored.add(currWord);
+    if (currWord === goal) {
+      break;
+    }
+    graph[currWord].forEach((adjacent)=>{
+      if (!explored.has(adjacent)) {
+        queue.push(adjacent);
+        parents[adjacent] = currWord;
+      }
+    })
+  }
+  return reconstructPath(parents);
+}
 
+function reconstructPath(parents, goal) {
+  const path = [];
+  let currWord = goal;
+  while (currWord !== null) {
+    path.push(currWord);
+    currWord = parents[currWord];
+  }
+  path.reverse();
+  return path;
 }
