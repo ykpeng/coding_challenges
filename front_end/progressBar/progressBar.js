@@ -8,7 +8,7 @@ function doSetTimeout(newBar, percent) {
   }
   newBar.css("width", `${percent}%`);
   setTimeout(function(){
-    percent++
+    percent++;
     doSetTimeout(newBar, percent);
   }, 100);
 }
