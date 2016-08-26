@@ -1,0 +1,11 @@
+.bars {
+  height: 10px;
+  width: 200px;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: green;
+  margin: 5px;
+}
