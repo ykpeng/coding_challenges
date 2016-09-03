@@ -39,4 +39,16 @@ $(()=>{
   input.addEventListener("input", function(e){
     console.log(this.value);
   })
+
+  function MyObject(element) {
+    this.elm = element;
+    console.log(this);
+    element.addEventListener('click', this.onClick, false);
+  };
+
+  MyObject.prototype.onClick = function(e){
+    console.log(this);
+  }
+
+  let o = new MyObject(document.getElementById("practice"));
 })
