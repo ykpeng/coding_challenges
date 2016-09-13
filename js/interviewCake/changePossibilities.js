@@ -1,6 +1,6 @@
 function changePossibilities(amount, coins) {
   const ways = [];
-  for (var i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i++) {
     ways[i] = 0;
   }
   ways[0] = 1;
@@ -17,3 +17,21 @@ function changePossibilities(amount, coins) {
 }
 
 // TODO: review
+
+function changePoss(amount, coins) {
+  console.log(`checking ways to make ${amount} with ${coins}`);
+  if (amount === 0) {
+    return 1;
+  }
+  let ways = 0;
+  for (let i = 0; i < coins.length; i++) {
+    let currCoin = coins[i];
+    if (currCoin <= amount) {
+      let remainder = amount - currCoin;
+      ways += changePoss(remainder, coins.slice(i));
+    }
+  }
+  return ways;
+}
+
+console.log(changePoss(4, [1,2,3]));
