@@ -1,0 +1,14 @@
+article {
+  display: none;
+}
+
+.tab {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+
+.heading {
+  cursor: pointer;
+}
