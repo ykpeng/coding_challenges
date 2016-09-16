@@ -1,5 +1,5 @@
 .bars {
-  height: 10px;
+  height: 20px;
   width: 200px;
 }
 
@@ -8,5 +8,8 @@
   width: 0%;
   transition: width 0.5s;
   background: green;
+  color: white;
+  text-align: center;
+  vertical-align: center;
   margin: 5px;
 }
