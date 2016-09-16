@@ -1,4 +1,4 @@
-$(()=>{
+$(() => {
   $(".start-button").on("click", startNewBar);
 })
 
