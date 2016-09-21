@@ -43,32 +43,63 @@ MAGNITUDES = {
   1_000_000_000_000 => "trillion"
 }
 
+# def in_words(num)
+#   if num < 10
+#     ONES[num]
+#   elsif num < 20
+#     TEENS[num]
+#   elsif num < 100
+#     tens_place = TENS[(num / 10) * 10]
+#     if num % 10 != 0
+#       tens_place + " " + ONES[num % 10]
+#     else
+#       tens_place
+#     end
+#   else
+#     magnitude = find_magnitude(num)
+#     magnitude_words = in_words(num / magnitude) + " " + MAGNITUDES[magnitude]
+#     if num % magnitude != 0
+#       magnitude_words + " " + in_words(num % magnitude)
+#     else
+#       magnitude_words
+#     end
+#   end
+# end
+#
+# def find_magnitude(num)
+#   MAGNITUDES.keys.reverse_each do |mag|
+#     return mag if num >= mag
+#   end
+# end
+
 def in_words(num)
   if num < 10
     ONES[num]
   elsif num < 20
     TEENS[num]
   elsif num < 100
-    tens_place = TENS[(num / 10) * 10]
+    tens_word = TENS[num / 10 * 10]
     if num % 10 != 0
-      tens_place + " " + ONES[num % 10]
+      tens_word + "-" + ONES[num % 10]
     else
-      tens_place
+      tens_word
     end
   else
     magnitude = find_magnitude(num)
-    magnitude_words = in_words(num / magnitude) + " " + MAGNITUDES[magnitude]
+    magnitude_word = in_words(num / magnitude) + " " + MAGNITUDES[magnitude]
     if num % magnitude != 0
-      magnitude_words + " " + in_words(num % magnitude)
+      magnitude_word + " " + in_words(num % magnitude)
     else
-      magnitude_words
+      magnitude_word
     end
   end
 end
 
 def find_magnitude(num)
-  MAGNITUDES.keys.reverse_each do |mag|
-    return mag if num >= mag
+  MAGNITUDES.keys.reverse_each do |key|
+    if num >= key
+      return key
+    end
   end
 end
 

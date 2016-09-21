@@ -35,20 +35,37 @@ $(()=>{
   }
 
   // $(".input").on("input", function(){console.log($(this).val());})
-  let input = document.querySelector(".input");
-  input.addEventListener("input", function(e){
-    console.log(this.value);
+  // let input = document.querySelector(".input");
+  // input.addEventListener("input", function(e){
+  //   console.log(this.value);
+  // })
+  //
+  // function MyObject(element) {
+  //   this.elm = element;
+  //   element.addEventListener('click', this.onClick, false);
+  // };
+  //
+  // MyObject.prototype.onClick = function(e){
+  //   console.log(this);
+  // }
+
+  // let o = new MyObject(document.getElementById("practice"));
+
+  const debounce = document.querySelector(".debounce");
+  debounce.addEventListener("input", function(e){
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.timeout = setTimeout(function(){
+      console.log(e.target.value);
+    }, 200);
   })
-
-  function MyObject(element) {
-    this.elm = element;
-    console.log(this);
-    element.addEventListener('click', this.onClick, false);
-  };
-
-  MyObject.prototype.onClick = function(e){
-    console.log(this);
-  }
-
-  let o = new MyObject(document.getElementById("practice"));
-})
+  // $(".debounce").on("input", function(e){
+  //   if (this.timeout) {
+  //     clearTimeout(this.timeout);
+  //   }
+  //   this.timeout = setTimeout(function(){
+  //     console.log(e.target.value);
+  //   }, 200);
+  // });
+});
