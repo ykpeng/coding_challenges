@@ -1,5 +1,3 @@
-require 'byebug'
-
 def counting_sort(arr, exp)
   output = []
   count = Array.new(10, 0)
