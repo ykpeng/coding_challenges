@@ -14,4 +14,9 @@ class Graph
   def initialize
     @nodes = []
   end
+
+  # shortest distance
+  def distance(node1, node2)
+
+  end
 end
